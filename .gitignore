@@ -1,0 +1,20 @@
+# Secrets: database password, APP_KEY, CRON_TOKEN (use config/config.sample.php as the template).
+/config/config.php
+
+# Runtime data (never versioned).
+/storage/logs/*
+!/storage/logs/.gitkeep
+/storage/backups/*
+!/storage/backups/.htaccess
+!/storage/backups/index.html
+/uploads/companies/*
+!/uploads/companies/.gitkeep
+
+# Local tooling / OS / editor files.
+/.claude/settings.local.json
+/_qa_*
+*.log
+.DS_Store
+Thumbs.db
+/.idea/
+/.vscode/

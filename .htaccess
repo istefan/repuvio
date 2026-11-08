@@ -1,0 +1,54 @@
+# RepuVio - root .htaccess
+# @author Stefan Iftimie <https://www.ahoi.ro/> - Ahoi Digital SRL
+
+Options -Indexes -MultiViews
+DirectoryIndex index.php
+ServerSignature Off
+
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+
+	# Block private folders.
+	RewriteRule ^(config|includes|storage|templates|tools)(/|$) - [F,L]
+
+	# Block hidden files (.git, .env ...) except .well-known.
+	RewriteRule (^|/)\.(?!well-known/) - [F,L]
+
+	# Pretty public review links: /r/{slug} -> review.php?b={slug}
+	RewriteRule ^r/([a-z0-9-]{1,100})/?$ review.php?b=$1 [L,QSA]
+
+	# Help center shortcut: /help -> dashboard/help.php
+	RewriteRule ^help/?$ dashboard/help.php [L,QSA]
+
+	# Public legal & contact pages.
+	RewriteRule ^termeni-si-conditii/?$ terms.php [L,QSA]
+	RewriteRule ^confidentialitate/?$ privacy.php [L,QSA]
+	RewriteRule ^politica-cookies/?$ cookies.php [L,QSA]
+	RewriteRule ^contact/?$ contact.php [L,QSA]
+</IfModule>
+
+# Block documentation, schema, logs and backup files.
+<FilesMatch "(?i)\.(md|sql|log|ini|bak|sh|dist|lock|json|yml|yaml|env)$">
+	<IfModule mod_authz_core.c>
+		Require all denied
+	</IfModule>
+	<IfModule !mod_authz_core.c>
+		Order allow,deny
+		Deny from all
+	</IfModule>
+</FilesMatch>
+
+<IfModule mod_headers.c>
+	Header always set X-Frame-Options "SAMEORIGIN"
+	Header always set X-Content-Type-Options "nosniff"
+	Header always set Referrer-Policy "strict-origin-when-cross-origin"
+	Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+	Header always unset X-Powered-By
+</IfModule>
+
+<IfModule mod_php.c>
+	php_flag expose_php off
+	php_flag display_errors off
+	php_value upload_max_filesize 6M
+	php_value post_max_size 8M
+</IfModule>

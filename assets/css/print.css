@@ -1,0 +1,415 @@
+/**
+ * RepuVio - Printables Studio templates (exact physical sizes in mm).
+ *
+ * @author  Stefan Iftimie <https://www.ahoi.ro/>
+ * @company Ahoi Digital SRL
+ */
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+body.rm-print {
+	font-family: "Inter", system-ui, sans-serif;
+	color: #0F172A;
+	background: #E2E8F0;
+	-webkit-print-color-adjust: exact;
+	print-color-adjust: exact;
+}
+
+.rm-print-toolbar {
+	position: sticky;
+	top: 0;
+	z-index: 10;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 12px;
+	padding: 12px 20px;
+	background: #FFFFFF;
+	border-bottom: 1px solid #E2E8F0;
+	font-size: 14px;
+}
+
+.rm-print-hint {
+	flex: 1 1 260px;
+	color: #64748B;
+	font-size: 12px;
+}
+
+.rm-print-toolbar button {
+	border: 0;
+	border-radius: 10px;
+	background: #0F172A;
+	color: #FFFFFF;
+	padding: 9px 16px;
+	font: 600 14px "Inter", sans-serif;
+	cursor: pointer;
+}
+
+.rm-sheets {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 24px;
+	padding: 24px;
+	transform-origin: top center;
+}
+
+.rm-sheet {
+	position: relative;
+	overflow: hidden;
+	background: #FFFFFF;
+	box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+	display: flex;
+	flex-direction: column;
+	page-break-after: always;
+	break-after: page;
+}
+
+.rm-sheet:last-child {
+	page-break-after: auto;
+	break-after: auto;
+}
+
+.rm-cover {
+	position: relative;
+	flex: 0 0 auto;
+	background: #0F172A;
+	overflow: hidden;
+}
+
+.rm-cover img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.rm-body {
+	flex: 1 1 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	padding: 0 12mm;
+}
+
+.rm-logo {
+	box-sizing: border-box;
+	object-fit: contain;
+	background: #FFFFFF;
+	border-radius: 50%;
+	border: 1mm solid #FFFFFF;
+	padding: 4.5mm; /* ~14% of the circle: the inscribed square of a circle is 71% of its diameter. */
+	box-shadow: 0 2mm 6mm rgba(15, 23, 42, 0.15);
+}
+
+.rm-name {
+	font-weight: 800;
+	letter-spacing: -0.02em;
+	line-height: 1.1;
+}
+
+.rm-stars {
+	color: #F59E0B;
+	letter-spacing: 0.15em;
+}
+
+.rm-cta {
+	font-weight: 600;
+	color: #334155;
+	line-height: 1.25;
+}
+
+.rm-qr svg {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.rm-qr {
+	padding: 3mm;
+	background: #FFFFFF;
+	border: 0.4mm solid #E2E8F0;
+	border-radius: 4mm;
+}
+
+.rm-scan {
+	color: #64748B;
+	font-weight: 500;
+}
+
+.rm-url {
+	color: #0F172A;
+	font-weight: 600;
+	font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+/* ---------- A4 ---------- */
+
+.rm-tpl-a4 .rm-cover {
+	height: 80mm;
+}
+
+.rm-tpl-a4 .rm-body {
+	justify-content: flex-start;
+}
+
+.rm-tpl-a4 .rm-logo {
+	width: 34mm;
+	height: 34mm;
+	margin-top: -17mm;
+	position: relative;
+}
+
+.rm-tpl-a4 .rm-name {
+	font-size: 26pt;
+	margin-top: 6mm;
+}
+
+.rm-tpl-a4 .rm-stars {
+	font-size: 22pt;
+	margin: 3mm 0;
+}
+
+.rm-tpl-a4 .rm-cta {
+	font-size: 17pt;
+	max-width: 170mm;
+}
+
+.rm-tpl-a4 .rm-qr {
+	width: 88mm;
+	height: 88mm;
+	margin: 8mm 0 5mm;
+}
+
+.rm-tpl-a4 .rm-scan {
+	font-size: 11pt;
+}
+
+.rm-tpl-a4 .rm-url {
+	font-size: 10pt;
+	margin-top: 2mm;
+}
+
+/* ---------- A5 ---------- */
+
+.rm-tpl-a5 .rm-cover {
+	height: 52mm;
+}
+
+.rm-tpl-a5 .rm-body {
+	justify-content: flex-start;
+	padding: 0 10mm;
+}
+
+.rm-tpl-a5 .rm-logo {
+	width: 24mm;
+	height: 24mm;
+	padding: 3.2mm;
+	margin-top: -12mm;
+	position: relative;
+}
+
+.rm-tpl-a5 .rm-name {
+	font-size: 18pt;
+	margin-top: 4mm;
+}
+
+.rm-tpl-a5 .rm-stars {
+	font-size: 15pt;
+	margin: 2mm 0;
+}
+
+.rm-tpl-a5 .rm-cta {
+	font-size: 12pt;
+}
+
+.rm-tpl-a5 .rm-qr {
+	width: 64mm;
+	height: 64mm;
+	margin: 5mm 0 3mm;
+}
+
+.rm-tpl-a5 .rm-scan {
+	font-size: 8.5pt;
+}
+
+.rm-tpl-a5 .rm-url {
+	font-size: 8pt;
+	margin-top: 1.5mm;
+}
+
+/* ---------- Sticker 100 x 100 ---------- */
+
+.rm-tpl-sticker .rm-sheet {
+	border-radius: 6mm;
+}
+
+.rm-tpl-sticker .rm-body {
+	padding: 6mm;
+	border: 1.2mm solid #0F172A;
+	border-radius: 6mm;
+	margin: 3mm;
+}
+
+.rm-tpl-sticker .rm-logo {
+	display: none;
+}
+
+.rm-tpl-sticker .rm-name {
+	font-size: 12pt;
+}
+
+.rm-tpl-sticker .rm-stars {
+	font-size: 10pt;
+	margin: 1mm 0;
+}
+
+.rm-tpl-sticker .rm-cta {
+	font-size: 8pt;
+}
+
+.rm-tpl-sticker .rm-qr {
+	width: 48mm;
+	height: 48mm;
+	margin: 2.5mm 0 1.5mm;
+	padding: 1.5mm;
+	border-radius: 2mm;
+}
+
+.rm-tpl-sticker .rm-scan {
+	font-size: 6.5pt;
+}
+
+/* ---------- Business card 85 x 55 ---------- */
+
+.rm-card-front {
+	background: #0F172A;
+	color: #FFFFFF;
+	align-items: center;
+	justify-content: center;
+}
+
+.rm-card-front-inner {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	padding: 4mm 6mm;
+}
+
+.rm-card-front .rm-logo {
+	width: 14mm;
+	height: 14mm;
+	padding: 1.8mm;
+	border-width: 0.5mm;
+	box-shadow: none;
+	margin-bottom: 2mm;
+}
+
+.rm-card-front .rm-name {
+	font-size: 11pt;
+	color: #FFFFFF;
+}
+
+.rm-card-front .rm-stars {
+	font-size: 9pt;
+	margin: 1mm 0;
+}
+
+.rm-card-front .rm-cta {
+	font-size: 7.5pt;
+	color: #CBD5E1;
+}
+
+.rm-card-back {
+	flex-direction: row;
+	align-items: center;
+	gap: 4mm;
+	padding: 5mm;
+}
+
+.rm-card-back .rm-qr {
+	width: 40mm;
+	height: 40mm;
+	flex: 0 0 40mm;
+	padding: 1.5mm;
+	border-radius: 2mm;
+}
+
+.rm-card-back-text .rm-scan {
+	font-size: 9pt;
+	font-weight: 700;
+	color: #0F172A;
+	line-height: 1.2;
+}
+
+.rm-card-back-text .rm-url {
+	font-size: 5.5pt;
+	margin-top: 2mm;
+	word-break: break-all;
+}
+
+/* ---------- Preview mode (inside iframe) ---------- */
+
+body.is-preview {
+	overflow-x: hidden;
+}
+
+body.is-preview .rm-sheets {
+	padding: 16px 0;
+}
+
+/* ---------- Print ---------- */
+
+@media print {
+	body.rm-print {
+		background: #FFFFFF;
+	}
+
+	.rm-print-toolbar {
+		display: none !important;
+	}
+
+	.rm-sheets {
+		display: block;
+		padding: 0;
+		transform: none !important;
+	}
+
+	.rm-sheet {
+		box-shadow: none;
+		margin: 0;
+	}
+
+	.rm-tpl-sticker .rm-sheet {
+		border-radius: 0;
+	}
+}
+
+/* Employee / department tag printed under the QR code (?ref=). */
+.rm-ref-label {
+	display: inline-block;
+	margin-top: 2mm;
+	padding: 0.6mm 2.4mm;
+	border: 0.3mm solid #CBD5E1;
+	border-radius: 99mm;
+	font-size: 2.6mm;
+	font-weight: 600;
+	color: #334155;
+	letter-spacing: 0.02em;
+}
+
+.rm-tpl-card .rm-ref-label {
+	margin-top: 1mm;
+	font-size: 2mm;
+}

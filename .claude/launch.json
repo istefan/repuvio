@@ -1,0 +1,12 @@
+{
+	"version": "0.0.1",
+	"configurations": [
+		{
+			"name": "repuman-dev",
+			"runtimeExecutable": "php",
+			"runtimeArgs": ["-S", "127.0.0.1:8791", "-t", "C:/xampp/htdocs/repuman", "C:/xampp/htdocs/repuman/tools/dev-router.php"],
+			"port": 8791,
+			"autoPort": false
+		}
+	]
+}
